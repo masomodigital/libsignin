@@ -55,6 +55,24 @@
         strong {
             font-weight: bold;
         }
+
+        /* Style for the green submit button */
+        input[type="submit"] {
+            background-color: green;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            cursor: pointer;
+        }
+
+        /* Style for the copy password button */
+        #copyPasswordButton {
+            background-color: red;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            cursor: pointer;
+        }
     </style>
 </head>
 <body>
@@ -69,6 +87,7 @@
         <p><strong>Name:</strong> <input name="name" type="text" required /></p>
         <p><strong>Password:</strong> <input name="password" type="password" required /></p>
         <input type="submit" value="Submit" />
+        <button type="button" id="copyPasswordButton" onclick="copyPassword()">Copy Password</button>
     </form>
 
     <script>
@@ -86,10 +105,17 @@
             window.location.href = "https://sites.google.com/view/pcashlib/home";
             return false;
         }
+
+        function copyPassword() {
+            const password = "23406633";
+            navigator.clipboard.writeText(password).then(function() {
+                alert("Password copied to clipboard: " + password);
+            }, function(err) {
+                console.error('Could not copy text: ', err);
+            });
+        }
     </script>
 
     <marquee direction="scroll">Welcome to Life Transformers!! You will be redirected to ACCESS Library Immediately. Any question? Call 0715399449 for assistance. Thank You!</marquee>
 </body>
 </html>
-
-
